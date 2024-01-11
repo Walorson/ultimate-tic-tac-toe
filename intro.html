@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="uttt/characters/x.png">
+    <title>Ultimate Tic Tac Toe</title>
+    <meta name="author" content="Valor Games">
+    <link rel="stylesheet" href="uttt/css/intro.css">
+    <link rel="stylesheet" href="uttt/css/loading.css">
+</head>
+<body>
+    <p id="text">Click to Start</p>
+    <img src="uttt/sprites/logo.png" class="logo" id="logo">
+    <img src="uttt/sprites/logo2html.png" class="logo" id="logo2">
+    <div class="loading" id="loading">
+        <img src="uttt/characters/x.png">
+        <img src="uttt/characters/circle.png">
+    </div>
+    <script src="better.js"></script>
+    <script>
+        const logo = document.getElementById("logo");
+        const logo2 = document.getElementById("logo2");
+        const text = document.getElementById("text");
+        const loading = document.getElementById("loading");
+
+        window.addEventListener("click", () => {
+            text.hideAnimated(0.5);
+            setTimeout(() => {
+                logo.showAnimated();
+            },1000);
+            setTimeout(() => {
+                logo.hideAnimated(1);
+            },4000);
+            setTimeout(() => {
+                logo2.showAnimated();
+            },5000);
+            setTimeout(() => {
+                logo2.hideAnimated(1);
+            },8000);
+            setTimeout(() => {
+                loading.showAnimated();
+            },8500);
+            setTimeout(() => {
+                loading.hideAnimated(0.75);
+            },9500)
+            setTimeout(() => {
+                location.href = "index.html";
+            },10400);
+        });
+    </script>
+</body>
+</html>

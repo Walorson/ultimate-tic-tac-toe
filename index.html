@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Tic Tac Toe</title>
+    <link rel="icon" href="uttt/characters/x.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Szymon Gniadek">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="window.css">
+    <link rel="stylesheet" href="match.css">
+    <link rel="stylesheet" href="uttt/css/loading.css">
+    <link rel="stylesheet" href="uttt/conditions/conditionsChoice.css">
+    <link rel="stylesheet" href="uttt/css/console.css">
+</head>
+<body>
+    <div class="console">
+        <div class="output" id="utttConsole-output">
+
+        </div>
+        <div class="input">
+            <input type="text" placeholder="Wpisz komende" id="utttConsole-input" list="commands">
+            <input type="button" value="Submit" id="utttConsole-submit">
+            <datalist id="commands">
+                <option>rule_straight_enable</option>
+                <option>rule_straight_num</option>
+                <option>rule_cross_enable</option>
+                <option>rule_cross_num</option>
+            </datalist>
+        </div>
+    </div>
+
+    <div id="title" class="parallax" data-speed="1.5">Ultimate Tic Tac Toe</div>
+    <div class="blur"></div><div class="blur"></div>
+
+    <div id="additionalConditions"></div>
+    <div id="menu" class="parallax" data-speed="0.9">
+        <div class="window"><div class="btnQuit">X</div>
+        <div class="window-container"> </div> <!-- -->
+        </div>
+
+        <section>
+            <div class="button disabled" id="play"><h2>SinglePlayer</h2><img src="img/singleplayer.png"></div>
+            <div class="button" id="hotseat"><h2>HotSeat</h2><img src="https://www.restartagd.pl/wp-content/uploads/2018/11/s%C5%82aby-p%C5%82omie%C5%84-palnika-1024x682.jpg"></div>
+        </section>
+        <section>
+            <div class="button disabled" id="multiplayer"><h2>MultiPlayer</h2><img src="img/multiplayer.png"></div>
+            <div class="button disabled" id="tournament"><h2>Tournament</h2><img src="img/tournament.jpg"></div>
+        </section>
+        <section>
+            <div class="button" id="settings"><h2>Settings</h2><img src="https://i.pinimg.com/originals/91/c7/af/91c7afd448799f7b9e110bd9332f994f.png"></div>
+            <div class="button" id="stats"><h2>Stats</h2><img src="img/stats.png"></div>
+            <div class="button" id="quit"><h2>Quit</h2><img src="img/quit.png"></div>
+        </section>
+    </div>
+    <div id="fadeQuit"></div>
+    <div class="loading" id="loading">
+        <img src="uttt/characters/x.png">
+        <img src="uttt/characters/circle.png">
+    </div>
+
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="better.js"></script>
+    <script src="uttt/scripts/audioVisualizer.js"></script>
+    <script src="uttt/maps/uttt_maps.js"></script>
+    <script src="uttt/music/mainmenu/all.js"></script>
+    <script src="uttt/conditions/condition.js"></script>
+    <script src="uttt/conditions/conditionsChoice.js"></script>
+    <script src="parallax.js"></script>
+    <script src="content.js"></script>
+    <script src="window.js"></script>
+    <script src="uttt/scripts/saveMap.js"></script>
+    <script src="uttt/scripts/console.js"></script>
+    <script>
+        $("#fadeQuit").css("opacity",0);
+        setTimeout(() => {
+            $("#fadeQuit").css("z-index",-50);
+        },1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+@font-face { /* 13.03.2023, 22:28 #pamietamy */
+    font-family: nk57-monospace;
+    src: url('../fonts/nk57-monospace-se-sb.otf');
+}
+.console {
+    height: 400px;
+    width: 600px;
+    background-color: #eee;
+    position: absolute;
+    top: 50px; left: 50px;
+    border: 10px solid #bbb;
+    z-index: 100;
+    display: none;
+    font-family: nk57-monospace;
+    font-size: 11px;
+    font-weight: 400;
+    box-shadow: 0px 1px 9px 0px rgba(0,0,0,0.2);
+    color: #111;
+}
+.console .input {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.console p {
+    margin: 5px 10px;
+    user-select: text;
+}
+.console input[type=text] {
+    width: 100%;
+}
+.console .output {
+    overflow-y: scroll;
+    height: 380px;
+}

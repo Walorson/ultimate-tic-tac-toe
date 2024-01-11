@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    background-color: black;
+    overflow: hidden;
+    color: white;
+    font-family: sans-serif;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+.logo {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    display: none;
+    transition: 1s;
+}
+#text {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    transition: 0.5s;
+}

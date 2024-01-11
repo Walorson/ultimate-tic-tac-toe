@@ -1,0 +1,98 @@
+@font-face {
+    font-family: Agency;
+    src: url('../fonts/Agency.ttf');
+}
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ddd;
+    overflow: hidden;
+    user-select: none;
+}
+img { -webkit-user-drag: none;  user-select: none;}
+.map {
+    position: relative;
+    transform: scale(0.4);
+    transition: all .5s ease-in-out;
+    height: 450px;
+    width: 450px;
+} 
+.map img { height: inherit; width: inherit; }
+.slots {
+    position: absolute;
+    top: 28px; left: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14.3px 14.2px;
+}
+.slot {
+    height: 121px;
+    width: 121px;
+    background-color: transparent;
+}
+.slot:hover {
+    background-color: rgba(114, 114, 114, 0.2);
+    cursor: pointer;
+}
+.slot img {
+    height: inherit;
+    width: inherit;
+}
+.disabled {
+    cursor: default !important;
+}
+.disabled:hover { background-color: transparent; }
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+.win {
+    background-color: rgba(0,200,0,0.5);
+    animation: blink 0.5s ease-in-out infinite;
+} .win:hover { background-color: rgba(0,200,0,0.5); }
+.turnImage {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+}
+.turnImage img {
+    height: 64px;
+    width: 64px;
+}
+.scoreboard {
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Courier New', Courier, monospace;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+@keyframes arrive {
+    0% { transform: translate(-50%,-50%) scale(0.5); }
+    100% { transform: translate(-50%,-50%) scale(1); }
+}
+.result {
+    position: absolute;
+    top: 50%; left: 50%;
+    text-align: center;
+    width: 100%;
+    transform: translate(-50%,-50%);
+    font-family: Agency;
+    font-size: 6rem;
+    animation: arrive 1s;
+    transition: 0.5s;
+}
+.none { display: none; }
+.crown {
+    position: absolute;
+    top: 0;
+    display: none;
+    width: 39px; 
+}

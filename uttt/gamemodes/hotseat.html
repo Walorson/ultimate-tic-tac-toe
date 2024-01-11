@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTTT: Hotseat</title>
+    <meta name="author" content="Szymon Gniadek">
+    <link rel="icon" href="../characters/x.png" id="icon">
+    <link rel="stylesheet" href="../css/loading.css">
+    <link rel="stylesheet" href="../css/blur.css">
+    <link rel="stylesheet" href="../css/end-window.css">
+    <link rel="stylesheet" href="../css/game.css">
+    <link rel="stylesheet" href="../css/console.css">
+</head>
+<body>
+    <div class="console">
+        <div class="output" id="utttConsole-output">
+
+        </div>
+        <div class="input">
+            <input type="text" placeholder="Wpisz komende" id="utttConsole-input" list="commands">
+            <input type="button" value="Submit" id="utttConsole-submit">
+            <datalist id="commands">
+                <option>rule_straight_enable</option>
+                <option>rule_straight_num</option>
+                <option>rule_cross_enable</option>
+                <option>rule_cross_num</option>
+            </datalist>
+        </div>
+    </div>
+
+    <div class="endWindow">
+        <div class="winner"><img src="../characters/x.png" id="winnerImg"> IS WINNER</div>
+        <div class="line">
+            Final Result: <div><img src="../characters/x.png" height="30" width="30" class="p1img">&MediumSpace;<span id="winnerp1">0</span> : <span id="winnerp2">0</span>&MediumSpace;<img src="../characters/circle.png" height="30" width="30" class="p2img"></div>
+        </div>
+        <hr>
+        <div class="line">
+            Total Moves: <div><img src="../characters/x.png" height="30" width="30" class="p1img">&MediumSpace;<span id="totalmovesp1">0</span> : <span id="totalmovesp2">0</span>&MediumSpace;<img src="../characters/circle.png" height="30" width="30" class="p2img"></div>
+        </div>
+        <button onclick='location.href = "../../index.html"'>Return to menu</button>
+    </div>
+
+
+
+    <div class="blur"></div><div class="blur"></div>
+    <div class="scoreboard"><img src="../sprites/crown.png" class="crown"><img height="30" width="30" class="p1img">&ThinSpace;<span id="p1score">0</span> : <span id="p2score">0</span>&ThinSpace;<img height="30" width="30" class="p2img"></div>
+    <div class="map">
+        <div class="slots"></div>
+    </div>
+    <div class="turnImage"></div>
+    <div id="result" class="none"></div>
+    <div class="black"></div>
+
+    <script src="../../jquery-3.6.0.min.js"></script>
+    <script src="../../better.js"></script>
+    <script src="../scripts/music.js"></script>
+    <script src="../scripts/console.js"></script>
+    <script src="../scripts/winningConditions.js"></script>
+    <script src="../maps/uttt_maps.js"></script>
+    <script src="../scripts/crown.js"></script>
+    <script src="../scripts/map.js"></script>
+    <script src="../scripts/player.js"></script>
+    <script src="../scripts/slot.js"></script>
+    <script src="../scripts/core.js"></script>
+</body>
+</html>

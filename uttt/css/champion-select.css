@@ -1,0 +1,100 @@
+body {
+    justify-content: space-around;
+    user-select: none;
+}
+.window {
+    position: relative;
+    opacity: 1;
+    width: 500px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    padding: 15px;
+    box-shadow: 0px 0px 15px -1px rgba(0,0,0,0.2);
+}
+.window button {
+    position: absolute;
+    left: 50%;
+    bottom: 5px;
+    transform: translateX(-50%);
+}
+.character {
+    position: relative;
+    border: 2px solid #999;
+    height: 128px;
+    width: 128px;
+    padding: 8px;
+    transition: 0.15s;
+}
+.character:hover {
+    cursor: pointer;
+    filter: sepia(70%);
+}
+.character img {
+    height: inherit;
+    width: inherit;
+}
+.square {
+    position: absolute;
+    z-index: 3;
+    top: 0; left: 0;
+    filter: url(#wavy);
+}
+.square::before {
+    content: '';
+    position: absolute;
+    border: 15px solid red;
+    border-radius: 15px;
+    top: -18px;
+    left: -18px;
+    width: 132px;
+    height: 132px;
+    box-shadow: 0 0 15px #f00, inset 0 0 50px #f00;
+    animation: 0.35s;
+    animation: colorChange 1s infinite linear;
+}
+@keyframes colorChange {
+    0% {
+        box-shadow: 0 0 15px #f00, inset 0 0 50px #f00;
+    }
+    50% {
+        box-shadow: 0 0 15px rgb(190, 72, 18), inset 0 0 50px rgb(190, 72, 18);
+    }
+}
+svg {
+    width: 0;
+    height: 0;
+    display: none;
+}
+.block {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+}
+.not-touched-yet {
+    filter: grayscale(50%);
+    transform: scale(0.9);
+}
+.big-info {
+    position: absolute;
+    top: 50%; left: 0;
+    transform: translateY(-50%);
+    text-shadow: 1px 1px 3px rgba(0,0,0,1);
+    font-size: 6rem;
+    font-style: italic;
+    background-color: rgba(0,0,0,0.25);
+    width: 100%;
+    text-align: center;
+    transition: transform 0.5s;
+    transform: scale(3);
+    filter: blur(5px);
+    display: none;
+}
+.champ {
+    position: absolute;
+    top: 0; left: 0;
+    height: 1000px;
+    width: 700px;
+}

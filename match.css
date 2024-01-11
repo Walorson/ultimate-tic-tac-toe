@@ -1,0 +1,63 @@
+.section { display: flex; flex-direction: row; }
+.maplist {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.map {
+    position: relative;
+    width: 233px; height: 145px;
+    background-color: #bbb;
+    transition: 0.2s ease-in-out;
+    filter: brightness(110%)
+}
+.map:hover {
+    filter: brightness(114%);
+    cursor: pointer;
+}
+.map:hover .mapname {
+    color: #777;
+}
+.map img { width: inherit; height: inherit; }
+.mapname {
+    position: absolute;
+    width: 100%;
+    left: 3px; bottom: 7px;
+    color: #666;
+    opacity: 0.8;
+    text-align: center;
+    transition: 0.2s ease-in-out;
+}
+#match-settings-image {
+    border: 3px solid #111;
+    width: 240px; height: 150px;
+}
+#match-settings-image img { width: inherit; height: inherit; }
+.winning-condition { display: flex; flex-direction: column-reverse; margin-right: 25px; }
+.winning-condition img {
+    width: 125px; height: 125px;
+}
+.add-custom-winning {
+    margin: 5px 0;
+    padding: 0 10px;
+    border-radius: 50%;
+    background-color: rgb(255, 55, 55);
+    opacity: 0.5;
+}
+.add-custom-winning a { text-decoration: none; }
+#match-settings-img3, #match-settings-custom-text { opacity: 0.5; }
+.match-settings-num {
+    display: flex;
+    align-items: center;
+}
+.match-settings-num input[type=number] {
+    outline: none;
+    border: 2px solid #101010;
+    font-size: 1.1rem;
+    width: 40px;
+    border-radius: 4px;
+}
+#conditions {
+    overflow-x: scroll;
+}

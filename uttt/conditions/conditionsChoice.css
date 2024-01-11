@@ -1,0 +1,37 @@
+#additionalConditions {
+    position: absolute;
+    border: 2px solid #bbb;
+    background-color: white;
+    z-index: -1 !important;
+    opacity: 0;
+    height: 650px;
+    width: 500px;
+    padding: 15px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+    z-index: 0;
+    transition: all 0.5s;
+}
+.conditionChoice {
+    position: relative;
+    cursor: pointer;
+    height: 150px;
+    width: 150px;
+    transition: 0.2s ease;
+}
+.conditionChoice img {
+    height: inherit;
+    width: inherit;
+    transition: inherit;
+}
+.conditionChoice:hover img, .choosen img { filter: contrast(30%); }
+.conditionChoice:hover span, .choosen span { opacity: 1 !important; }
+.conditionChoice span {
+    position: absolute;
+    opacity: 0;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    transition: inherit;
+}

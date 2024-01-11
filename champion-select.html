@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Champion</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="window.css">
+    <link rel="stylesheet" href="uttt/css/loading.css">
+    <link rel="stylesheet" href="uttt/css/champion-select.css">
+</head>
+<body>
+    <div class="window">
+        <svg>
+            <filter id="wavy">
+                <feturbulence x="0" y="0" baseFrequency="0.009" numOctaves="2" seed="2">
+                    <animate attributeName="baseFrequency" dur="50s" values="0.02; 0.005; 0.02" repeatCount="indefinite"></animate>
+                </feturbulence>
+                <feDisplacementMap in="SourceGraphic" scale="30">
+            </filter>
+        </svg>
+        <div class="btnApply">CONFIRM</div>
+    </div>
+    <div class="window not-touched-yet">
+        <div class="btnApply">CONFIRM</div>
+        <div class="block"></div>
+    </div>
+    <div class="big-info" id="info-press">Press Spacebar to start!</div>
+
+    <div class="black"></div>
+    <div class="loading" id="loading">
+        <img src="uttt/characters/x.png">
+        <img src="uttt/characters/circle.png">
+    </div>
+    <script src="better.js"></script>
+    <script src="uttt/scripts/champion-select.js"></script>
+</body>
+</html>

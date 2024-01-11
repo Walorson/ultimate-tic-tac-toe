@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('uttt/css/loading.css');
+@font-face {
+    font-family: 'Patchwork';
+    src: url('./font/Patchwork\ Stitchlings\ Color.ttf');
+}
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: radial-gradient(circle, #e5e5e5, #d6d6d6, #c7c7c7, #b8b8b8, #aaa);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Bebas Neue', sans-serif;
+    color: #fdfdfd;
+    overflow: hidden;
+}
+img { -webkit-user-drag: none;  user-select: none;}
+a { color: #fdfdfd; }
+#menu {
+    width: 40%;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    user-select: none;
+}
+#menu section {
+    display: flex;
+    flex-direction: column;
+}
+.button {
+    background-image: linear-gradient(to right bottom, #d53939, #cf3333, #c92d2c, #c22626, #bc1f1f);
+    width: 200px;
+    margin: 15px;
+    position: relative;
+    transition: 0.2s;
+}
+.button h2 { margin: 5px; position: absolute; font-weight: 400; opacity: 0.8; z-index: 2; }
+.button img { position: absolute; z-index: 1; transition: 0.3s linear; opacity: 0.2; }
+.button:hover {
+    transform: scale(1.03);
+    cursor: pointer;
+    background-image: linear-gradient(to right bottom, #d53939, #cf3333, #c73636, #c23737, #b83e3e);
+}
+img {
+    height: inherit;
+    width: inherit;
+}
+#play {
+    height: 300px;
+}
+#hotseat {
+    height: 125px;
+}
+#hotseat img { height: 125px; width: 200px; }
+#hotseat:hover img { opacity: 0.4; }
+#multiplayer, #multiplayer img, #tournament, #tournament i {
+    height: 212.5px;
+    width: 230px;
+}
+#settings, #stats, #quit {
+    height: 135px;
+    margin: 13px;
+    width: 200px;
+}
+#settings:hover img, #stats:hover img, #quit:hover img {
+    opacity: 0.5;
+}
+.blur {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 10px;
+    background-color: #000;
+    filter: blur(30px);
+}
+.blur:first-child {
+    top: 0; left: 0;
+}
+#fadeQuit {
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%; width: 100%;
+    background-color: black;
+    z-index: 50;
+    opacity: 1;
+    transition: opacity 1.15s;
+}
+#title {
+    position: absolute;
+    top: 50px; left: 25%;
+    font-family: 'Patchwork';
+    font-size: 2rem;
+}
+.add-condition {
+    height: 100%;
+    background-color: #999;
+    margin-top: 10px;
+    color: #111;
+    text-align: center;
+    width: 200px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+.add-condition:hover {
+    filter: brightness(93%);
+}
+#canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.disabled {
+    transition: none;
+    filter: grayscale(50%);
+}
+.disabled:hover {
+    transform: none;
+    cursor: default;
+}
