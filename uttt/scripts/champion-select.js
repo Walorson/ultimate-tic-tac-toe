@@ -69,9 +69,9 @@ function startGame() {
     setTimeout(() => {
         infoPress.style.filter = 'blur(0)';
         infoPress.style.transform = 'scale(1)';
-    });
-    window.addEventListener("keypress",(e) => {
-        if(e.key == ' ') {
+        document.body.style.cursor = "Pointer";
+
+        window.addEventListener("click",(e) => {
             black.showAnimated();
             loading.showAnimated();
             setTimeout(() => {
@@ -80,6 +80,6 @@ function startGame() {
             setTimeout(() => {
                 location.href = 'uttt/gamemodes/hotseat.html';
             },1500);
-        }
+        });
     });
 }

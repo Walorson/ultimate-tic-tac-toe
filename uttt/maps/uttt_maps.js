@@ -137,3 +137,22 @@ const uttt_rectangle = {
     default_straight_num: 3,
     default_cross_num: 3
 }
+const uttt_shift = {
+    name: 'uttt_shift',
+    width: 800,
+    height: 500,
+    x: 5, y: 5,
+    slots: 5*5,
+    grid_template: 'repeat(5, 1fr)',
+    grid_gap: '28px 27px',
+    top: '42px',
+    left: '41px',
+    slot_size: '123px',
+    disabled_map: [
+        [3,4],
+        [0,4],
+        [0,1],
+        [0,1,2,3,4],
+        [0,1,2,3,4]
+    ]
+}

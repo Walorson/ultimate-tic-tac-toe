@@ -19,7 +19,7 @@ class Condition {
             }
         });
     }
-    add() {
+    add(isMenu = true) {
         this.id = conditions.length;
         conditions.push(conditionsList[this.name]);
         this.conditionChoice.classList.add("choosen");
@@ -35,16 +35,21 @@ class Condition {
                 element += `</select>
             </div>
 	    </div>`;
-        document.getElementById("conditions").innerHTML += element;
+        if(isMenu == true)
+            document.getElementById("conditions").innerHTML += element;
 
         sessionStorage.setItem(`rule_${this.name}_enable`,true);
 
         this.isAdded = true;
-        this.update();
 
-        conditions.forEach(item => {
-            item.update();
-        })
+        if(isMenu == true) 
+        {
+            this.update();
+
+            conditions.forEach(item => {
+                item.update();
+            })
+        }
     }
     remove() {
         this.isAdded = false;
@@ -98,8 +103,8 @@ function addCondition() {
         item.update();
     })
 }
-function setDefaultConditions() {
+function setDefaultConditions(isMenu = true) {
     conditions = [];
-    conditionStraight.add();
-    conditionCross.add();
+    conditionStraight.add(isMenu);
+    conditionCross.add(isMenu);
 }

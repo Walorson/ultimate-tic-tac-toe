@@ -25,7 +25,7 @@ img { -webkit-user-drag: none;  user-select: none;}
 .map img { height: inherit; width: inherit; }
 .slots {
     position: absolute;
-    top: 28px; left: 20px;
+    top: 22px; left: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 14.3px 14.2px;

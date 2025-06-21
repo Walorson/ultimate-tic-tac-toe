@@ -47,8 +47,15 @@ class utttConsole {
         }
     }
     map(map) {
+        sessionStorage.setItem('player1', 'x');
+        sessionStorage.setItem('player2', 'circle');
+        setDefaultConditions(false);
+
+        conditions = conditions.purgeFromUndefined();
+	    sessionStorage.setItem("conditions",JSON.stringify(conditions));
+
         sessionStorage.setItem('map',JSON.stringify(eval(map)));
-        location.href = 'champion-select.html';
+        location.href = './uttt/gamemodes/hotseat.html';
     }
     execute() {
         let val = this.input.value;
