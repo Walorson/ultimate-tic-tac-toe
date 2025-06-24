@@ -1,0 +1,40 @@
+.settings {
+    background-color: #eee;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 10px;
+    font-size: 2rem;
+
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+input {
+    height: 30px;
+    font-size: 1.2rem;
+    margin-left: 20px;
+    width: 150px;
+}
+
+.hitbox {
+    background-color: rgba(114, 114, 114, 0.25);
+}
+
+.map {
+    position: absolute;
+    top: 35px;
+    left: 35px;
+}
+
+.shutdown {
+    opacity: 0.2;
+}
