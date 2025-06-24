@@ -24,20 +24,25 @@ const singleplayerContent = `
 const hotseatContent = `
 <h2>Create Match | Player vs Player (hotseat)</h2>
 <h3 style="text-align:center">Choose map</h3>
-<div class="maplist">
-		<div class="map" onclick="saveMap(1)"><img src="img/${uttt_3x3.name}.png" /><span class="mapname">3x3 Classic</span></div>
-		<div class="map" onclick="saveMap(2)"><img src="img/${uttt_4x4.name}.png" /><span class="mapname">4x4 Bigger</span></div>
-		<div class="map" onclick="saveMap(3)"><img src="img/${uttt_5x5.name}.png" /><span class="mapname">5x5 Big</span></div>
-</div>
-<div class="maplist">
-			<div class="map" onclick="saveMap(4)"><img src="img/${uttt_6x6.name}.png" /><span class="mapname">6x6 Large</span></div>
-			<div class="map" onclick="saveMap(5)"><img src="img/${uttt_8x8.name}.png" /><span class="mapname">8x8 Huge</span></div>
-			<div class="map" onclick="saveMap(6)"><img src="img/${uttt_triangle.name}.png" /><span class="mapname">Triangle</span></div>
-</div>
-<div class="maplist">
-				<div class="map" onclick="saveMap(7)"><img src="img/${uttt_hexagon.name}.png" /><span class="mapname">Hexagon</span></div>
-				<div class="map" onclick="saveMap(8)"><img src="img/${uttt_rectangle.name}.png" /><span class="mapname">Rectangle</span></div>
-				<div class="map" onclick="saveMap(9)"><img src="img/${uttt_curve.name}.png" /><span class="mapname">The Curve</span></div>
+<div class="maplist-container">
+	<div class="maplist">
+			<div class="map" onclick="saveMap(1)"><img src="img/${uttt_3x3.name}.png" /><span class="mapname">3x3 Classic</span></div>
+			<div class="map" onclick="saveMap(2)"><img src="img/${uttt_4x4.name}.png" /><span class="mapname">4x4 Bigger</span></div>
+			<div class="map" onclick="saveMap(3)"><img src="img/${uttt_5x5.name}.png" /><span class="mapname">5x5 Big</span></div>
+	</div>
+	<div class="maplist">
+				<div class="map" onclick="saveMap(4)"><img src="img/${uttt_6x6.name}.png" /><span class="mapname">6x6 Large</span></div>
+				<div class="map" onclick="saveMap(5)"><img src="img/${uttt_8x8.name}.png" /><span class="mapname">8x8 Huge</span></div>
+				<div class="map" onclick="saveMap(6)"><img src="img/${uttt_triangle.name}.png" /><span class="mapname">Triangle</span></div>
+	</div>
+	<div class="maplist">
+					<div class="map" onclick="saveMap(7)"><img src="img/${uttt_hexagon.name}.png" /><span class="mapname">Hexagon</span></div>
+					<div class="map" onclick="saveMap(8)"><img src="img/${uttt_rectangle.name}.png" /><span class="mapname">Rectangle</span></div>
+					<div class="map" onclick="saveMap(9)"><img src="img/${uttt_curve.name}.png" /><span class="mapname">The Curve</span></div>
+	</div>
+	<div class="maplist">
+					<div class="map" onclick="saveMap(10)"><img src="img/${uttt_shift.name}.png" /><span class="mapname">Shift</span></div>
+	</div>
 </div>
 
 `;
