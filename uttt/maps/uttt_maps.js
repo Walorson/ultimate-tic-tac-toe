@@ -146,3 +146,21 @@ const uttt_shift = {
         [0,1,2,3,4]
     ]
 }
+const uttt_y = {
+    name: 'uttt_y',
+    width: 700,
+    height: 700,
+    x: 5, y: 5,
+    grid_template: 'repeat(5, 1fr)',
+    grid_gap: '17.4px 17.2px',
+    top: '21px',
+    left: '22px',
+    slot_size: '118px',
+    disabled_map: [
+         [1,2,3],
+         [2],
+         [0,4],
+         [0,1,3,4],
+         [0,1,3,4]
+    ]
+}

@@ -11,6 +11,7 @@ function saveMap(name) {
         case 8: saveMapValue = uttt_rectangle; break;
         case 9: saveMapValue = uttt_curve; break;
         case 10: saveMapValue = uttt_shift; break;
+        case 11: saveMapValue = uttt_y; break;
     }
     sessionStorage.setItem('map',JSON.stringify(saveMapValue));
     windowContainer.style.opacity = 0;

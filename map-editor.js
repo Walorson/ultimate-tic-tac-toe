@@ -2,6 +2,7 @@ const preview = document.getElementById("preview");
 const previewImg = document.getElementById("preview-img");
 const slots = document.getElementById("slots");
 const inputs = {
+    name: document.getElementById("name"),
     file: document.getElementById("file"),
     width: document.getElementById("width"),
     height: document.getElementById("height"),
@@ -11,7 +12,8 @@ const inputs = {
     top: document.getElementById("top"),
     left: document.getElementById("left"),
     slotSize: document.getElementById("slot-size"),
-    showHitbox: document.getElementById("show-hitbox")
+    showHitbox: document.getElementById("show-hitbox"),
+    export: document.getElementById("export")
 }
 let isShowHitbox = true;
 
@@ -71,7 +73,7 @@ inputs.slots.addEventListener("input", (e) => {
     slots.innerHTML = "";
     for(let i=0; i < Math.pow(e.target.value, 2); i++)
     {
-        slots.innerHTML += '<div class="slot hitbox"><img src="uttt/characters/circle.png"></div>';
+        slots.innerHTML += `<div class="slot hitbox" style="width: ${inputs.slotSize.value}px; height: ${inputs.slotSize.value}px"><img src="uttt/characters/circle.png"></div>`;
     }
 
     if(isShowHitbox == false) 
@@ -124,4 +126,60 @@ function includeEventToSlots()
             }
         }
     });
+}
+
+inputs.export.addEventListener("click", () => {
+    const content = `
+const ${inputs.name.value} = {
+    name: '${inputs.name.value}',
+    width: ${inputs.width.value},
+    height: ${inputs.height.value},
+    x: ${inputs.slots.value}, y: ${inputs.slots.value},
+    grid_template: 'repeat(${inputs.slots.value}, 1fr)',
+    grid_gap: '${inputs.gridY.value}px ${inputs.gridX.value}px',
+    top: '${inputs.top.value}px',
+    left: '${inputs.left.value}px',
+    slot_size: '${inputs.slotSize.value}px',
+    disabled_map: [
+${generateDisabledMap()}
+    ]
+}
+    `;
+    const blob = new Blob([content], {type: "text/plain"});
+    const link = document.createElement("a");
+
+    link.href = URL.createObjectURL(blob);
+    link.download = inputs.name.value+".txt";
+    link.click();
+
+    URL.revokeObjectURL(link.href);
+});
+
+function generateDisabledMap() {
+    let text = "";
+    const slots = document.querySelectorAll(".slot");
+
+    for(let i=0; i<inputs.slots.value; i++) {
+
+        let row = "         [";
+
+        for(let j=0; j<inputs.slots.value; j++) {
+            console.log(j)
+            if(slots[j + inputs.slots.value * i].classList.contains("shutdown")) {
+                row += j+","
+            }
+        }
+
+        if(row[row.length-1] == ",")
+            row = row.substring(0, row.length-1);
+
+        if(i < inputs.slots.value - 1)
+            row += "],\n";
+        else
+            row += "]";
+
+        text += row;
+    }
+
+    return text;
 }

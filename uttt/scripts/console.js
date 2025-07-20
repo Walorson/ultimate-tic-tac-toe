@@ -53,6 +53,8 @@ class utttConsole {
 
         conditions = conditions.purgeFromUndefined();
 	    sessionStorage.setItem("conditions",JSON.stringify(conditions));
+        sessionStorage.setItem("rule_straight_num", 3);
+        sessionStorage.setItem("rule_cross_num", 3);
 
         sessionStorage.setItem('map',JSON.stringify(eval(map)));
         location.href = './uttt/gamemodes/hotseat.html';
@@ -104,6 +106,7 @@ class utttConsole {
             case 'echo': this.print(v2); break;
             case 'calc': this.calc(v2); break;
             case 'map': this.map(v2); break;
+            case 'hud_visible': this.hudVisible(v2); break;
             default: this.print(`Unknown command "${v1}"`); break;
         }
 
@@ -117,6 +120,15 @@ class utttConsole {
     showThis(v1,v2) {
         this.print(v1+": "+sessionStorage.getItem(v1));
     }
+    hudVisible(v2) {
+        if(v2 == "") {
+            this.showThis("hud_visible", v2);
+        }
+        else if(v2 == "false" || v2 == "true") {
+            this.setThis("hud_visible", v2);
+        }   
+        else this.printError(`Unexpected value ${v2}. This variable is boolean (True or False).`);
+    }
 }
 
 const CONSOLE = new utttConsole();
@@ -126,6 +138,8 @@ window.addEventListener('keydown',(e) => {
         if(!CONSOLE.visible) {
             $('.console').css('display','block');
             CONSOLE.visible = true;
+
+            setTimeout(() => CONSOLE.input.focus());
         }
         else {
             $('.console').css('display','none');

@@ -42,6 +42,7 @@ const hotseatContent = `
 	</div>
 	<div class="maplist">
 					<div class="map" onclick="saveMap(10)"><img src="img/${uttt_shift.name}.png" /><span class="mapname">Shift</span></div>
+					<div class="map" onclick="saveMap(11)"><img src="img/${uttt_y.name}.png" /><span class="mapname">Y</span></div>
 	</div>
 </div>
 
