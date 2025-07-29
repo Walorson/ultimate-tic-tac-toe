@@ -1,14 +1,15 @@
 window.addEventListener("load",() => {
     $('.black').$hideAnimated(0.75);
     $(".map").css('transform','scale(1)');
-    turnImage.innerHTML = p1.insertOnlyImage();
+    turnImage.innerHTML = players[0].insertOnlyImage();
     //const music1 = new Audio('../music/music1.mp3');
     //music1.play();
 });
 
+initScoreboard();
+
 let isRoundEnd = false;
-const p1 = new Player(1, sessionStorage.getItem("player1") );
-const p2 = new Player(2, sessionStorage.getItem("player2") );
+const players = [new Player(1, sessionStorage.getItem("player1")), new Player(2, sessionStorage.getItem("player2")), new Player(3, "hexagram")];
 const pointsToWin = sessionStorage.getItem("pointsToWin");
 const mapDiv = document.querySelector(".map");
 const endWindow = document.querySelector(".endWindow");
@@ -16,7 +17,7 @@ const crown = document.querySelector(".crown");
 const result = document.getElementById("result");
 let slots; // document.querySelectorAll(".slot");
 const turnImage = document.querySelector(".turnImage");
-let turnX = true;
+let turn = 0;
 
 let uttt_map = JSON.parse(sessionStorage.getItem("map"));
 conditions = JSON.parse(sessionStorage.getItem('conditions'));
@@ -59,10 +60,8 @@ function endRound(playerWhosWin) {
 
         if(playerWhosWin.winPoints >= pointsToWin) {
             $("#winnerImg").attr('src',playerWhosWin.character);
-            $("#winnerp1").html(p1.winPoints);
-            $("#winnerp2").html(p2.winPoints);
-            $("#totalmovesp1").html(p1.totalMoves);
-            $("#totalmovesp2").html(p2.totalMoves);
+            setFinalResult();
+            setTotalMoves();
             displayResult(playerWhosWin.char+" won the match!",true);
             crownChange();
             return;
@@ -72,16 +71,46 @@ function endRound(playerWhosWin) {
         displayResult(playerWhosWin.char+" won the round");
     }
 
-    p1.turn = 0; p2.turn = 0;
+    players.forEach(plr => plr.turn = 0);
     setTimeout(startNewRound,1500);
 }
 function startNewRound() {
     mapInit(uttt_map.x, uttt_map.y);
-    if(p1.winPoints+1 == pointsToWin || p2.winPoints+1 == pointsToWin) {
+
+    const theBiggestWinPoints = players.reduce((max, plr) => Math.max(plr.winPoints), 0);
+
+    if(theBiggestWinPoints+1 == pointsToWin) {
         setTimeout(() => { displayResult("Match Point") },500);
         setTimeout(() => { isRoundEnd = false; },2000);
     }
     else isRoundEnd = false;
 
     clearSlots();
+}
+function initScoreboard() {
+    const scoreboard = document.querySelector(".scoreboard");
+    for(let i=1; i<=3; i++)
+    {
+        let text = `<img height="30" width="30" class="p${i}img"><span id="p${i}score">0</span><img height="30" width="30" class="p${i}img">`;
+        if(i < 3) text += ' : ';
+        scoreboard.insertAdjacentHTML("beforeend", text);
+    }
+}
+function setFinalResult() {
+    const finalResult = document.getElementById("final-result");
+    for(let i=1; i<=3; i++)
+    {
+        let text = `<img class="p${i}img" src="${players[i-1].character}"><span id="p${i}score">${players[i-1].winPoints}</span><img class="p${i}img" src="${players[i-1].character}">`;
+        if(i < 3) text += ' : ';
+        finalResult.insertAdjacentHTML("beforeend", text);
+    }
+}
+function setTotalMoves() {
+    const totalMoves = document.getElementById("total-moves");
+    for(let i=1; i<=3; i++)
+    {
+        let text = `<img src="${players[i-1].character}" class="p${i}img"><span id="totalmovesp${i}">${players[i-1].totalMoves}</span><img src="${players[i-1].character}" class="p${i}img">`;
+        if(i < 3) text += ' : ';
+        totalMoves.insertAdjacentHTML("beforeend", text);
+    }
 }

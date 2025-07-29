@@ -3,7 +3,7 @@ let charMap = [];
 
 function createMap(mapsrc) {
     mapsrc.slots = mapsrc.x * mapsrc.y;
-    $('#icon').attr('href',p1.character);
+    $('#icon').attr('href',players[0].character);
     $('.map').append(`<img src="../maps/${mapsrc.name}.png">`);
     $('.map').css('width',mapsrc.width);
     $('.map').css('height',mapsrc.height);

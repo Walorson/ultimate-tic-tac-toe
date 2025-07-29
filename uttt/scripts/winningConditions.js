@@ -9,6 +9,12 @@ function highlightWinLine(player, x, y) { //Podświetl terytorium zwycięskiej l
     endRound(player);
 }
 function check(player, x, y) {
+    ///Jeśli wszystkie pola są zapełnione zakończ rundę
+    if(players.reduce((sum, plr) => sum + plr.turn, 0) >= uttt_map.playableSlots) {
+        endRound(null);
+        return false;
+    }
+
     for(let i=0; i<x.length-1; i++) {
         if(charMap[valid(y[i])][valid(x[i])] != charMap[valid(y[i+1])][valid(x[i+1])]) {
             return false;
@@ -72,13 +78,6 @@ function checkWinCondition(x, y, player) {
             }
         }
     });
-
-    ///Jeśli wszystkie pola są zapełnione zakończ rundę
-    setTimeout(() => { 
-        if(p1.turn + p2.turn >= uttt_map.playableSlots) {
-            endRound(null);
-        }
-    },10);
 
     ///////////// CONDITIONPEDIA ///////////
     /// To co jest poniżej to już historia ////

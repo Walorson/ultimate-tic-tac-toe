@@ -48,3 +48,7 @@
 .endWindow button:hover {
     transform: scale(0.97);
 }
+.endWindow img {
+    height: 22px;
+    width: 22px;
+}

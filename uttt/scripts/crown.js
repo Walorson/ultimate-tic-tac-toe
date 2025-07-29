@@ -1,5 +1,5 @@
 function crownChange() {
-    if(p1.winPoints > p2.winPoints) {
+    /*if(p1.winPoints > p2.winPoints) {
         crown.style.display = 'block';
         crown.style.transform = 'translateX(-5px)';
         crown.style.right = null;
@@ -11,5 +11,5 @@ function crownChange() {
         crown.style.left = null;
         crown.style.right = 0;
     }
-    else crown.style.display = 'none';
+    else crown.style.display = 'none';*/
 }
