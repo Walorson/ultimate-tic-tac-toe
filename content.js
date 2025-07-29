@@ -145,11 +145,12 @@ const hotseatSettingsContent = `
 	</select>
 </div>
 <div class="match-settings-num">Numbers of BOTs: <input type="number" min="1" max="3" value="1" /></div> -->
-<div class="match-settings-num">Players Count: <input type="number" min="1" max="4" value="2" oninput="playersCount()" id="playersCount"/></div>
+<div class="match-settings-num">Players Count: <input type="number" min="1" max="8" value="2" oninput="playersCount()" id="playersCount"/></div>
 <div class="match-settings-num">Points to Win: <input type="number" min="1" max="50" value="3" oninput="pointsToWin()" id="pointsToWin"/></div>
 <div class="btnApply" onclick="apply()">CONFIRM</div>
 `;
 sessionStorage.setItem("pointsToWin",3);
+sessionStorage.setItem("playersCount",2);
 const loading = document.getElementById("loading");
 const fadeQuit = document.getElementById("fadeQuit");
 

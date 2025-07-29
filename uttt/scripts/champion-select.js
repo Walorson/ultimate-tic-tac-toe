@@ -49,7 +49,8 @@ const characterList = [
     new Character('cross'),
     new Character('warning'),
     new Character('dollar'),
-    new Character('hash')
+    new Character('hash'),
+    new Character('square')
 ];
 const black = document.querySelector('.black');
 const loading = document.getElementById('loading');

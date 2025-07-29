@@ -6,8 +6,6 @@ window.addEventListener("load",() => {
     //music1.play();
 });
 
-initScoreboard();
-
 const playersCount = sessionStorage.getItem("playersCount");
 let isRoundEnd = false;
 const players = [];
@@ -23,6 +21,7 @@ let turn = 0;
 let uttt_map = JSON.parse(sessionStorage.getItem("map"));
 conditions = JSON.parse(sessionStorage.getItem('conditions'));
 
+initScoreboard();
 loadPlayers();
 createMap(uttt_map);
 mapInit(uttt_map.x, uttt_map.y);
@@ -91,28 +90,28 @@ function startNewRound() {
 }
 function initScoreboard() {
     const scoreboard = document.querySelector(".scoreboard");
-    for(let i=1; i<=3; i++)
+    for(let i=1; i<=playersCount; i++)
     {
         let text = `<img height="30" width="30" class="p${i}img"><span id="p${i}score">0</span><img height="30" width="30" class="p${i}img">`;
-        if(i < 3) text += ' : ';
+        if(i < playersCount) text += ' : ';
         scoreboard.insertAdjacentHTML("beforeend", text);
     }
 }
 function setFinalResult() {
     const finalResult = document.getElementById("final-result");
-    for(let i=1; i<=3; i++)
+    for(let i=1; i<=playersCount; i++)
     {
         let text = `<img class="p${i}img" src="${players[i-1].character}"><span id="p${i}score">${players[i-1].winPoints}</span><img class="p${i}img" src="${players[i-1].character}">`;
-        if(i < 3) text += ' : ';
+        if(i < playersCount) text += ' : ';
         finalResult.insertAdjacentHTML("beforeend", text);
     }
 }
 function setTotalMoves() {
     const totalMoves = document.getElementById("total-moves");
-    for(let i=1; i<=3; i++)
+    for(let i=1; i<=playersCount; i++)
     {
         let text = `<img src="${players[i-1].character}" class="p${i}img"><span id="totalmovesp${i}">${players[i-1].totalMoves}</span><img src="${players[i-1].character}" class="p${i}img">`;
-        if(i < 3) text += ' : ';
+        if(i < playersCount) text += ' : ';
         totalMoves.insertAdjacentHTML("beforeend", text);
     }
 }
