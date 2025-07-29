@@ -8,8 +8,9 @@ window.addEventListener("load",() => {
 
 initScoreboard();
 
+const playersCount = sessionStorage.getItem("playersCount");
 let isRoundEnd = false;
-const players = [new Player(1, sessionStorage.getItem("player1")), new Player(2, sessionStorage.getItem("player2")), new Player(3, "hexagram")];
+const players = [];
 const pointsToWin = sessionStorage.getItem("pointsToWin");
 const mapDiv = document.querySelector(".map");
 const endWindow = document.querySelector(".endWindow");
@@ -22,6 +23,7 @@ let turn = 0;
 let uttt_map = JSON.parse(sessionStorage.getItem("map"));
 conditions = JSON.parse(sessionStorage.getItem('conditions'));
 
+loadPlayers();
 createMap(uttt_map);
 mapInit(uttt_map.x, uttt_map.y);
 
@@ -112,5 +114,11 @@ function setTotalMoves() {
         let text = `<img src="${players[i-1].character}" class="p${i}img"><span id="totalmovesp${i}">${players[i-1].totalMoves}</span><img src="${players[i-1].character}" class="p${i}img">`;
         if(i < 3) text += ' : ';
         totalMoves.insertAdjacentHTML("beforeend", text);
+    }
+}
+function loadPlayers() {
+    for(let i=1; i<=playersCount; i++)
+    {
+        players.push(new Player(i, sessionStorage.getItem("player"+i)));
     }
 }

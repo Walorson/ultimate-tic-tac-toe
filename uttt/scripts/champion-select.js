@@ -1,6 +1,6 @@
-const charWindow = document.querySelectorAll(".window");
+const charWindow = document.querySelector(".window");
 const infoPress = document.getElementById("info-press");
-const playersCount = 2;
+const playersCount = sessionStorage.getItem("playersCount");
 let playersConfirmed = 0;
 
 class Character {
@@ -8,38 +8,35 @@ class Character {
         this.name = name;
         this.img = 'uttt/characters/'+name+'.png';
         this.chosen = false;
-        charWindow[0].innerHTML += `<div class="character" id="character-${this.name}"><img src="${this.img}"></div>`;
-        charWindow[1].innerHTML += `<div class="character" id="character-${this.name}"><img src="${this.img}"></div>`;
-        charWindow.forEach((item, index) => {
-            item.querySelector(".btnApply").onclick = () => {
-                item.style.filter = "grayscale(100%)";
-                item.style.transform = "scale(0.9)";
-                item.innerHTML += '<div class="block"></div>';
-                playersConfirmed++;
-
-                if(playersConfirmed >= 1 && index == 0) {
-                    charWindow[1].querySelector('.block').remove();
-                    charWindow[1].classList.remove('not-touched-yet');
-                }
-                if(playersConfirmed >= 2) startGame();
-            }
-        });
+        this.disabled = false;
+        charWindow.innerHTML += `<div class="character" id="${this.name}"><img src="${this.img}"></div>`;
     }
     update() {
-        this.div = document.querySelectorAll("#character-"+this.name);
-        this.div.forEach((item, index) => {
-            item.onclick = () => {
-                characterList.forEach(character => {
-                    if(character.chosen == true) {
-                        try { character.div[index].querySelector(".square").remove(); } catch {}
-                        this.chosen = false;
-                    }
-                });
-                item.innerHTML += `<div class="square"></div>`;
-                sessionStorage.setItem("player"+Number(index+1),this.name)
-                this.chosen = true;
-            }
-        });
+        this.div = document.getElementById(this.name);
+
+        this.div.onclick = () => {
+            characterList.forEach(character => {
+                if(character.chosen == true) {
+                    try { character.div.querySelector(".square").remove(); } catch {}
+                    this.chosen = false;
+                }
+            });
+            this.div.innerHTML += `<div class="square"></div>`;
+            this.chosen = true;
+        }
+    }
+    acceptChoice() {
+        this.disabled = true;
+        this.div.classList.add("disabled");
+        try { this.div.querySelector(".square").remove(); } catch {}
+        this.chosen = false;
+        this.div.onclick = {};
+        sessionStorage.setItem("player"+Number(playersConfirmed+1),this.name);
+        playersConfirmed++;
+
+        if(playersConfirmed >= playersCount) {
+            startGame();
+        }
     }
 }
 const characterList = [
@@ -56,6 +53,15 @@ const characterList = [
 ];
 const black = document.querySelector('.black');
 const loading = document.getElementById('loading');
+
+document.querySelector(".btnApply").addEventListener("click", () => {
+    characterList.forEach(character => {
+        if(character.chosen == true) {
+            character.acceptChoice();
+            return;
+        }
+    });
+});
 
 window.addEventListener("load",() => {
     black.hideAnimated(0.75);
