@@ -18,7 +18,7 @@ class Character {
             characterList.forEach(character => {
                 if(character.chosen == true) {
                     try { character.div.querySelector(".square").remove(); } catch {}
-                    this.chosen = false;
+                    character.chosen = false;
                 }
             });
             this.div.innerHTML += `<div class="square"></div>`;
@@ -28,6 +28,12 @@ class Character {
     acceptChoice() {
         this.disabled = true;
         this.div.classList.add("disabled");
+
+        const divChosen = document.createElement("div");
+        divChosen.classList.add("chosen");
+        this.div.insertAdjacentElement("afterbegin", divChosen);
+        setTimeout(() => divChosen.style.transform = "scale(1)");
+
         try { this.div.querySelector(".square").remove(); } catch {}
         this.chosen = false;
         this.div.onclick = {};
@@ -72,6 +78,7 @@ window.addEventListener("load",() => {
 });
 
 function startGame() {
+    charWindow.style.zIndex = "-1";
     infoPress.style.display = 'block';
     setTimeout(() => {
         infoPress.style.filter = 'blur(0)';

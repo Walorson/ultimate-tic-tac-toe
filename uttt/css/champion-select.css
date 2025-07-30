@@ -105,3 +105,16 @@ svg {
     cursor: default;
     filter: grayscale(100%);
 }
+.chosen {
+    border: 6px solid red;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    transform: scale(1.5);
+    transition: 0.5s transform;
+}
+.chosen::after {
+    content: "CHOSEN";
+}
